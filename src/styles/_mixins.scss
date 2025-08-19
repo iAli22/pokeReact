@@ -1,0 +1,112 @@
+@import './variables';
+
+// Media query mixins
+@mixin mobile {
+  @media (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+// Flexbox mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Typography mixins
+@mixin heading-1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@mixin heading-2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+@mixin body-text {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@mixin small-text {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+// Box shadow mixins
+@mixin card-shadow {
+  box-shadow: $shadow-md;
+  transition: box-shadow 0.3s ease;
+  
+  &:hover {
+    box-shadow: $shadow-lg;
+  }
+}
+
+// Button mixins
+@mixin button-base {
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $border-radius-sm;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  outline: none;
+}
+
+@mixin button-primary {
+  @include button-base;
+  background-color: $color-primary;
+  color: $color-text-light;
+  
+  &:hover {
+    background-color: $color-primary-dark;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: $color-secondary;
+  color: $color-text-light;
+  
+  &:hover {
+    background-color: $color-secondary-dark;
+  }
+}
+
+// Animation mixins
+@mixin fade-in {
+  animation: fadeIn 0.3s ease-in;
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}

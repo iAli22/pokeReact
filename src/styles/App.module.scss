@@ -1,0 +1,19 @@
+@import './variables';
+@import './mixins';
+
+.app {
+  min-height: 100vh;
+  background-color: $color-background;
+  @include flex-column;
+  width: 100%;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+.mainContent {
+  padding: $spacing-lg 0;
+  flex: 1;
+  
+  @include mobile {
+    padding: $spacing-sm 0;
+  }
+}

@@ -1,0 +1,19 @@
+@import '../variables';
+@import '../mixins';
+
+.layout {
+  @include flex-column;
+  min-height: 100vh;
+  background-color: $color-background;
+  width: 100%;
+}
+
+.content {
+  flex: 1;
+  @include flex-column;
+  padding: $spacing-md 0;
+  
+  @include mobile {
+    padding: $spacing-sm 0;
+  }
+}

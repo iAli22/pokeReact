@@ -1,0 +1,39 @@
+@import '../variables';
+@import '../mixins';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  width: 100%;
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+  
+  @media (max-width: 640px) {
+    padding: 0;
+    gap: 0.5rem;
+  }
+}
+
+.leftColumn {
+  flex: 1;
+  min-width: 0; /* Prevents content from overflowing */
+  
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.rightColumn {
+  flex: 2;
+  min-width: 0; /* Prevents content from overflowing */
+  
+  @media (max-width: 768px) {
+    display: none; /* Hide on mobile for now until we add content */
+  }
+}

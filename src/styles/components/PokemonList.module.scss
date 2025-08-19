@@ -1,0 +1,73 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.container {
+  background-color: $color-background-light;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: $spacing-md;
+  
+  @include mobile {
+    border-radius: 0;
+  }
+}
+
+.header {
+  background-color: $color-primary;
+  color: $color-text-light;
+  padding: $spacing-sm $spacing-md;
+  font-size: 1.25rem;
+  font-weight: bold;
+  
+  @include mobile {
+    padding: $spacing-xs $spacing-sm;
+    font-size: 1.1rem;
+  }
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 70vh;
+  overflow-y: auto;
+
+}
+
+.listItem {
+  padding: $spacing-sm $spacing-md;
+  border: none;
+
+  border-bottom: 1px solid $color-background-dark;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  @include flex-between;
+  justify-content: start;
+  color: $color-text-primary;
+  background: transparent;
+width: 100%;
+  &:hover {
+    background-color: $color-background-dark;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  @include mobile {
+    padding: $spacing-xs $spacing-sm;
+  }
+}
+
+.pokemonName {
+  text-transform: capitalize;
+  font-weight: 500;
+  
+  @include mobile {
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,134 @@
+@import '../variables';
+@import '../mixins';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $border-radius-sm;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  outline: none;
+  gap: $spacing-xs;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+// Size variants
+.small {
+  padding: calc($spacing-xs / 2) $spacing-sm;
+  font-size: 0.85rem;
+}
+
+.medium {
+  padding: $spacing-xs $spacing-md;
+  font-size: 0.95rem;
+}
+
+.large {
+  padding: $spacing-sm $spacing-lg;
+  font-size: 1rem;
+}
+
+// Color variants
+.primary {
+  background-color: $color-primary;
+  color: $color-text-light;
+  transition: all 0.2s ease;
+  
+  &:hover:not(:disabled) {
+    background-color: $color-primary-dark;
+    transform: translateY(-1px);
+    box-shadow: $shadow-sm;
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+.secondary {
+  background-color: $color-secondary;
+  color: $color-text-light;
+  transition: all 0.2s ease;
+  
+  &:hover:not(:disabled) {
+    background-color: $color-secondary-dark;
+    transform: translateY(-1px);
+    box-shadow: $shadow-sm;
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+.outline {
+  background-color: transparent;
+  color: $color-primary;
+  border: 1px solid $color-primary;
+  transition: all 0.2s ease;
+  
+  &:hover:not(:disabled) {
+    background-color: rgba(59, 130, 246, 0.1); 
+    transform: translateY(-1px);
+    box-shadow: $shadow-sm;
+  }
+  
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+.text {
+  background-color: transparent;
+  color: $color-primary;
+  padding-left: 0;
+  padding-right: 0;
+  transition: color 0.2s ease;
+  
+  &:hover:not(:disabled) {
+    color: $color-primary-dark;
+    text-decoration: underline;
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+// Loading state
+.loading {
+  position: relative;
+  
+  & > * {
+    visibility: hidden;
+  }
+  
+  .spinner {
+    visibility: visible;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid $color-text-light;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
